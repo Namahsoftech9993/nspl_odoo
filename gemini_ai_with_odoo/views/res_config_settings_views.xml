@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="gemini_res_config_settings_view" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.gemini.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='emails']" position="after">
+                <block title="Gemini" id="gemini">
+                    <setting string="Gemini AI" help="Add Gemini AI Integration in Discuss" id="gemini_ai_with_odoo"
+                             documentation="https://ai.google.dev/gemini-api/docs">
+                        <label class="col-lg-3 o_form_label" string="API Key" for="gemini_api_key"/>
+                        <field name="gemini_api_key" title="GeminiAI API Key" placeholder="Paste your API key"
+                               password="True"/>
+                        <br/>
+
+                    </setting>
+                    <setting id="gemini_model" string="Gemini Model"
+                             help="Select the generative AI model"
+                             documentation="https://ai.google.dev/gemini-api/docs/models/gemini">
+                        <field name="gemini_model_id"/>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>
